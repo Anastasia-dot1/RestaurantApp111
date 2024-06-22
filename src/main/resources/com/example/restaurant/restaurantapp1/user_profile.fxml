@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.restaurant.restaurantapp1.UserProfile">
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="700.0">
+            <children>
+                <Pane layoutX="20.0" layoutY="20.0" prefHeight="654.0" prefWidth="660.0" style="-fx-background-color: #f1faee;">
+                    <children>
+                        <Label alignment="CENTER" layoutX="-40.0" layoutY="14.0" prefHeight="62.0" prefWidth="394.0" text="Клиент. Аккаунт" textFill="#012551">
+                            <font>
+                                <Font name="DejaVu Sans Mono Bold" size="24.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="btnBook"  onAction="#toBook" layoutX="392.0" layoutY="568.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="177.0" style="-fx-background-color: #1d3557;" text="Бронировать" textFill="WHITE">
+                            <font>
+                                <Font name="DejaVu Sans Mono Bold" size="20.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="btnBack" onAction="#toBack" alignment="CENTER" layoutX="133.0" layoutY="572.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="170.0" style="-fx-background-color: #a5ceff;" text="Назад" textFill="#1d3557">
+                            <font>
+                                <Font name="DejaVu Sans Mono Bold" size="16.0" />
+                            </font>
+                        </Button>
+                  <Label alignment="CENTER" layoutX="133.0" layoutY="85.0" prefHeight="62.0" prefWidth="394.0" text="Брони" textFill="#012551">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="95.0" layoutY="160.0" prefHeight="62.0" prefWidth="246.0" text="Выбор официанта" textFill="#012551">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="waiterComb" layoutX="350.0" layoutY="179.0" prefHeight="25.0" prefWidth="217.0" />
+                  <Label alignment="CENTER" layoutX="251.0" layoutY="222.0" prefHeight="62.0" prefWidth="49.0" text="Меню" textFill="#012551">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="listMenu" layoutX="351.0" layoutY="232.0" prefHeight="200.0" prefWidth="216.0" />
+                  <Label alignment="CENTER" layoutX="258.0" layoutY="443.0" prefHeight="62.0" prefWidth="49.0" text="Дата" textFill="#012551">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="textDate"  layoutX="354.0" layoutY="461.0" prefHeight="25.0" prefWidth="215.0" promptText="11.11.1111" />
+                    </children>
+                </Pane>
+            </children>
+        </AnchorPane>
+    </content>
+</ScrollPane>

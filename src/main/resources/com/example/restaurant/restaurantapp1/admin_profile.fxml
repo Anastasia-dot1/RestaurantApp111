@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.restaurant.restaurantapp1.AdminProfile">
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="700.0">
+            <children>
+                <Pane layoutX="20.0" layoutY="20.0" prefHeight="560.0" prefWidth="660.0" style="-fx-background-color: #f1faee;">
+                    <children>
+                        <Label alignment="CENTER" layoutX="133.0" layoutY="45.0" prefHeight="62.0" prefWidth="394.0" text="Администратор Аккаунт" textFill="#012551">
+                            <font>
+                                <Font name="DejaVu Sans Mono Bold" size="26.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="btnMenu" onAction="#toMenu" layoutX="417.0" layoutY="234.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="177.0" style="-fx-background-color: #1d3557;" text="Меню" textFill="WHITE">
+                            <font>
+                                <Font name="DejaVu Sans Mono Bold" size="20.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="btnBack" onAction="#toBack" alignment="CENTER" layoutX="246.0" layoutY="396.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="170.0" style="-fx-background-color: #023e8a;" text="Назад" textFill="WHITE">
+                            <font>
+                                <Font name="DejaVu Sans Mono Bold" size="16.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="btnBook" onAction="#toBook" layoutX="84.0" layoutY="233.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="173.0" style="-fx-background-color: #a5ceff;" text="Брони" textFill="#1d3557">
+                            <font>
+                                <Font name="DejaVu Sans Mono Bold" size="20.0" />
+                            </font>
+                        </Button>
+                  <Label alignment="CENTER" layoutX="297.0" layoutY="107.0" prefHeight="39.0" prefWidth="66.0" text="Инн:" textFill="#012551">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="291.0" layoutY="146.0" prefHeight="39.0" prefWidth="99.0" text="Логин:" textFill="#012551">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="innInsert"  alignment="CENTER" layoutX="363.0" layoutY="107.0" prefHeight="39.0" prefWidth="130.0"  textFill="#012551">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="loginInsert" alignment="CENTER" layoutX="376.0" layoutY="146.0" prefHeight="39.0" prefWidth="130.0"  textFill="#012551">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="20.0" />
+                     </font>
+                  </Label>
+                    </children>
+                </Pane>
+            </children>
+        </AnchorPane>
+    </content>
+</ScrollPane>

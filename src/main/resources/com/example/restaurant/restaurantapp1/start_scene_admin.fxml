@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.restaurant.restaurantapp1.StartUserOrAdmin">
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="700.0">
+            <children>
+                <Pane layoutX="20.0" layoutY="20.0" prefHeight="560.0" prefWidth="660.0" style="-fx-background-color: #f1faee;">
+                    <children>
+                        <Button fx:id="btnBack" layoutX="365.0" layoutY="296.0" mnemonicParsing="false" onAction="#toBack" prefHeight="45.0" prefWidth="178.0" style="-fx-background-color: #a5ceff;" text="Вернуться назад" textFill="#1d3557">
+                            <font>
+                                <Font name="DejaVu Sans Mono Bold" size="16.0" />
+                            </font>
+                        </Button>
+                        <Label alignment="CENTER" layoutX="117.0" layoutY="172.0" prefHeight="62.0" prefWidth="426.0" text="Администратор" textFill="#012551">
+                            <font>
+                                <Font name="DejaVu Sans Mono Bold" size="51.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="btnEntr" layoutX="186.0" layoutY="296.0" mnemonicParsing="false" onAction="#toEntr" prefHeight="45.0" prefWidth="106.0" style="-fx-background-color: #1d3557;" text="Войти" textFill="WHITE">
+                            <font>
+                                <Font name="DejaVu Sans Mono Bold" size="20.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </Pane>
+            </children>
+        </AnchorPane>
+    </content>
+</ScrollPane>
