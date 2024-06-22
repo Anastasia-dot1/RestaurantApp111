@@ -3,8 +3,16 @@ package com.example.restaurant.restaurantapp1;
 import java.sql.*;
 
 public class IsUsers_SQL {
+    private static IsUsers_SQL instance;
+    private IsUsers_SQL(){}
+    // Публичный статический метод для получения единственного экземпляра класса
+    public static synchronized IsUsers_SQL getInstance() {
+        if (instance == null) {
+            instance = new IsUsers_SQL();
+        }
+        return instance;
+    }
     public String isUsers(String phone, String password) {
-
         Connection connection = null;
         try {
             // Проверяем наличие драйвера JDBC
@@ -12,8 +20,8 @@ public class IsUsers_SQL {
 
             // Устанавливаем соединение с базой данных
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/veloprokat",
-                    "veloprokat", "Stud249013!");
+                    "jdbc:mysql://localhost:3306/deniz",
+                    "Чурсина Анастасия", "2323");
 
             // Создаем объект Statement для выполнения запросов к базе данных
             Statement statement = connection.createStatement();
@@ -28,12 +36,11 @@ public class IsUsers_SQL {
 
 
             outLoop:
-            while (result.next()) {
+            /*    while (result.next()) {
 
                 String ph = result.getString("phone");
                 String pas = result.getString("password");
                 User user = new User(phone,password);
-
 
 
                 if (ph.equals(phone)){
@@ -48,11 +55,8 @@ public class IsUsers_SQL {
 
                 }
 
-                //System.out.print(phone);
-                //System.out.print(password);
 
-            }
-
+            }*/
             // Закрываем ресурсы
             result.close();
             statement.close();
@@ -73,5 +77,41 @@ public class IsUsers_SQL {
         }
         return null;
     }
+    public static void addUser(String name, String last_name, String patronymic, String inn) {
+        Connection connection = null;
+        boolean success = false;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/deniz",
+                    "Чурсина Анастасия", "2323");
+            String insertClientQuery = "INSERT INTO clients (name, last_name, patronymic, инн) VALUES (?, ?, ?, ?)";
+            PreparedStatement insertClientStatement = connection.prepareStatement(insertClientQuery);
+            insertClientStatement.setString(1, name);
+            insertClientStatement.setString(2, last_name);
+            insertClientStatement.setString(3, patronymic);
+            insertClientStatement.setString(4, inn);
+            int clientRowsAffected = insertClientStatement.executeUpdate();
 
+            if (clientRowsAffected > 0) {
+                success = true;
+            }
+            else{
+                System.out.println("ошибка");
+            }
+            insertClientStatement.close();
+        } catch (ClassNotFoundException e) {
+            System.err.println("Не найден драйвер JDBC: " + e.getMessage());
+        } catch (SQLException e) {
+            System.err.println("Ошибка при выполнении SQL-запроса: " + e.getMessage());
+        } finally {
+            try {
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("Ошибка при закрытии соединения: " + e.getMessage());
+            }
+        }
+    }
 }
