@@ -66,7 +66,7 @@ public class UserRegistration {
         errorPasswordText.setText(errorPassword());
 
         if (errorNameText.getText().isEmpty() && errorLastNameText.getText().isEmpty() && errorPatronymicText.getText().isEmpty() && errorInnText.getText().isEmpty() && errorPasswordText.getText().isEmpty()) {
-            IsUsers_SQL.addUser(varFirstName,varLastName,varPatronymic,varInn);
+            IsUsers_SQL.addUser(varFirstName,varLastName,varPatronymic,varInn,varPassword);
             Stage stage = (Stage) btnBack.getScene().getWindow();
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("user_profile.fxml")));
             stage.setScene(new Scene(root, 700, 700));

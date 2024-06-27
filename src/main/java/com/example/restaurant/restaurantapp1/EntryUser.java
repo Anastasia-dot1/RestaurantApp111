@@ -31,30 +31,28 @@ public class EntryUser {
 
     @FXML
     void toNext(ActionEvent event) throws IOException {
-        /*Stage stage = (Stage) btnBack.getScene().getWindow();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("user_profile.fxml")));
-        stage.setScene(new Scene(root, 700, 600));
-        stage.show();*/
+        String innText = inn.getText(); // предполагается, что у вас есть поле inn (TextField)
+        String passwordText = password.getText(); // предполагается, что у вас есть поле password (PasswordField)
 
-        if (!inn.getText().isEmpty() && !password.getText().isEmpty()) {
-/*            IsUsers_SQL sql = new IsUsers_SQL();
-            String flag = sql.isUsers(inn.getText(), password.getText());
+        // Проверяем, что поля inn и password не пустые
+        if (!innText.isEmpty() && !passwordText.isEmpty()) {
+            // Вызываем метод для проверки пользователя
+            boolean isValidUser = IsUsers_SQL.checkUser(innText, passwordText);
 
-            if (flag.equals("существует")) {
+            if (isValidUser) {
                 Stage stage = (Stage) btnBack.getScene().getWindow();
                 Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("user_profile.fxml")));
-                stage.setScene(new Scene(root, 700, 600));
+                stage.setScene(new Scene(root, 700, 700));
                 stage.show();
-            }*/
-
-            Stage stage = (Stage) btnBack.getScene().getWindow();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("user_profile.fxml")));
-        stage.setScene(new Scene(root, 700, 700));
-        stage.show();
-
+            } else {
+                // Если пользователь не найден, вы можете вывести сообщение или обработать иным способом
+                errorPassword.setText("Неправильный inn или password");
+                errorInn.setText("Неправильный inn или password");
+            }
         } else {
-            errorPassword.setText("заполните все поля");
-            errorInn.setText("заполните все поля");
+            // Если одно из полей пустое, выводим сообщение об ошибке
+            errorPassword.setText("Заполните все поля");
+            errorInn.setText("Заполните все поля");
         }
     }
 
