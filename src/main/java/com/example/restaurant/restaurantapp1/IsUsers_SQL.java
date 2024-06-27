@@ -92,6 +92,75 @@ public class IsUsers_SQL {
 
         return userExists;
     }
+    public static void addDish(String dishName) {
+        Connection connection = null;
+        boolean success = false;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/deniz",
+                    "Чурсина Анастасия",
+                    "2323");
+            String insertDishQuery = "INSERT INTO dishes (name) VALUES (?)";
+            PreparedStatement insertDishStatement = connection.prepareStatement(insertDishQuery);
+            insertDishStatement.setString(1, dishName);
+            int dishRowsAffected = insertDishStatement.executeUpdate();
+            if (dishRowsAffected > 0) {
+                success = true;
+            } else {
+                System.out.println("Ошибка при добавлении блюда");
+            }
+            insertDishStatement.close();
+        } catch (ClassNotFoundException e) {
+            System.err.println("Не найден драйвер JDBC: " + e.getMessage());
+        } catch (SQLException e) {
+            System.err.println("Ошибка при выполнении SQL-запроса: " + e.getMessage());
+        } finally {
+            try {
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("Ошибка при закрытии соединения: " + e.getMessage());
+            }
+        }
+    }
+    public static void deleteDish(int dishId) {
+        Connection connection = null;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/deniz",
+                    "Чурсина Анастасия",
+                    "2323");
+
+            String deleteDishQuery = "DELETE FROM dishes WHERE id_dishes = ?";
+            PreparedStatement deleteDishStatement = connection.prepareStatement(deleteDishQuery);
+            deleteDishStatement.setInt(1, dishId);
+
+            int rowsAffected = deleteDishStatement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Блюдо успешно удалено.");
+            } else {
+                System.out.println("Ошибка при удалении блюда.");
+            }
+
+            deleteDishStatement.close();
+        } catch (ClassNotFoundException e) {
+            System.err.println("Не найден драйвер JDBC: " + e.getMessage());
+        } catch (SQLException e) {
+            System.err.println("Ошибка при выполнении SQL-запроса: " + e.getMessage());
+        } finally {
+            try {
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("Ошибка при закрытии соединения: " + e.getMessage());
+            }
+        }
+    }
+
 
 
 }

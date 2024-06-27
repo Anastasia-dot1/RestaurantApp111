@@ -10,7 +10,10 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Objects;
+
+import static com.example.restaurant.restaurantapp1.IsUsers_SQL.addDish;
 
 public class AddDishAdmin {
     public TextField nameDishText;
@@ -22,6 +25,16 @@ public class AddDishAdmin {
     public TextField consText;
 
     public void toAddDish(ActionEvent actionEvent) {
+        String dishName = nameDishText.getText().trim();
+
+        if (dishName.isEmpty()) {
+            errorNameDish.setText("Название блюда не может быть пустым");
+            return;
+        }
+
+        addDish(dishName);
+        errorNameDish.setText("Блюдо добавлено успешно");
+        errorDesc.setText("");
     }
 
     public void toBack(ActionEvent actionEvent) throws IOException {

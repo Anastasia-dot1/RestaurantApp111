@@ -19,7 +19,7 @@
                                 <Font name="DejaVu Sans Mono Bold" size="28.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="nameDishText" layoutX="281.0" layoutY="155.0" prefHeight="36.0" prefWidth="249.0">
+                        <TextField fx:id="idDish" layoutX="281.0" layoutY="155.0" prefHeight="36.0" prefWidth="249.0">
                             <font>
                                 <Font name="DejaVu Sans Mono Bold" size="14.0" />
                             </font>
