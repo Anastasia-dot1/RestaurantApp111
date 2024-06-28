@@ -31,8 +31,14 @@ public class UserProfile {
     public void initialize() {
         isUsersSql = new IsUsers_SQL(); // Инициализация объекта для работы с базой данных
         listMenu.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-
+        fillMenuListView();
     }
+    private void fillMenuListView() {
+        ObservableList<String> menuItems = FXCollections.observableArrayList(isUsersSql.getAllDishes());
+        listMenu.setItems(menuItems);
+    }
+
+
 
     @FXML
     public void toBook(ActionEvent actionEvent) {

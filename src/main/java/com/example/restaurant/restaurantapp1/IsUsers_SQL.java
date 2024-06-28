@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 
 public class IsUsers_SQL {
@@ -165,6 +166,27 @@ public class IsUsers_SQL {
             }
         }
     }
+    public ObservableList<String> getAllDishes() {
+        ObservableList<String> menuItems = FXCollections.observableArrayList();
+        String query = "SELECT id_dishes,name FROM dishes";
+
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/deniz", "Чурсина Анастасия", "2323");
+             PreparedStatement statement = connection.prepareStatement(query);
+             ResultSet resultSet = statement.executeQuery()) {
+
+            while (resultSet.next()) {
+                String id = resultSet.getString("id_dishes");
+                String dishName = resultSet.getString("name");
+                menuItems.add(dishName);
+            }
+        } catch (SQLException e) {
+            System.err.println("Ошибка при выполнении SQL-запроса: " + e.getMessage());
+        }
+
+        return menuItems;
+    }
+
+
 }
 
 
