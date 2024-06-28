@@ -38,15 +38,7 @@ public class EntryAdmin {
     @FXML
     void toNext(ActionEvent event) throws IOException {
         if (!login.getText().isEmpty() && !password.getText().isEmpty()) {
-/*            IsUsers_SQL sql = new IsUsers_SQL();
-            String flag = sql.isUsers(login.getText(), password.getText());
 
-            if (flag.equals("существует")) {
-                Stage stage = (Stage) btnBack.getScene().getWindow();
-                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("admin_profile.fxml")));
-                stage.setScene(new Scene(root, 700, 600));
-                stage.show();
-            }*/
             Stage stage = (Stage) btnBack.getScene().getWindow();
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("admin_profile.fxml")));
             stage.setScene(new Scene(root, 700, 600));

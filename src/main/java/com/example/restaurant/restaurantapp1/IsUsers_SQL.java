@@ -4,17 +4,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
-import java.util.ArrayList;
 
 
 public class IsUsers_SQL {
     private static IsUsers_SQL instance;
     private String id_client;
-
     protected IsUsers_SQL() {
     }
 
-    // Публичный статический метод для получения единственного экземпляра класса
     public static synchronized IsUsers_SQL getInstance() {
         if (instance == null) {
             instance = new IsUsers_SQL();
@@ -77,7 +74,9 @@ public class IsUsers_SQL {
             ResultSet resultSet = selectUserStatement.executeQuery();
 
             if (resultSet.next()) {
-                userExists = true; // Пользователь существует в базе данных
+                userExists = true;
+                User user = new User(resultSet.getInt("id"));
+                UserProfile.setUser(user);
             }
             resultSet.close();
             selectUserStatement.close();
@@ -207,5 +206,3 @@ public class IsUsers_SQL {
     }
 
 }
-
-

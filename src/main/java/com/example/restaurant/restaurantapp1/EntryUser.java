@@ -31,12 +31,10 @@ public class EntryUser {
 
     @FXML
     void toNext(ActionEvent event) throws IOException {
-        String innText = inn.getText(); // предполагается, что у вас есть поле inn (TextField)
-        String passwordText = password.getText(); // предполагается, что у вас есть поле password (PasswordField)
+        String innText = inn.getText();
+        String passwordText = password.getText();
 
-        // Проверяем, что поля inn и password не пустые
         if (!innText.isEmpty() && !passwordText.isEmpty()) {
-            // Вызываем метод для проверки пользователя
             boolean isValidUser = IsUsers_SQL.checkUser(innText, passwordText);
 
             if (isValidUser) {
@@ -45,12 +43,10 @@ public class EntryUser {
                 stage.setScene(new Scene(root, 700, 700));
                 stage.show();
             } else {
-                // Если пользователь не найден, вы можете вывести сообщение или обработать иным способом
                 errorPassword.setText("Неправильный inn или password");
                 errorInn.setText("Неправильный inn или password");
             }
         } else {
-            // Если одно из полей пустое, выводим сообщение об ошибке
             errorPassword.setText("Заполните все поля");
             errorInn.setText("Заполните все поля");
         }

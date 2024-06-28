@@ -28,12 +28,20 @@ public class UserProfile {
     public TextField textDate;
     private IsUsers_SQL isUsersSql = new IsUsers_SQL();
     private MenuAdmin.Dish selectedWaiter;
+    static User user;
 
     public void initialize() {
         isUsersSql = new IsUsers_SQL(); // Инициализация объекта для работы с базой данных
         listMenu.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         fillMenuListView();
         fillWaitersComboBox();
+    }
+    public static void setUser(User user) {
+        UserProfile.user = user;
+    }
+
+    public static User getUser() {
+        return user;
     }
 
     private void fillMenuListView() {
@@ -48,6 +56,40 @@ public class UserProfile {
     @FXML
     public void toBook(ActionEvent actionEvent) {
 
+        /*ObservableList<MenuAdmin.Dish> selectedDishes = listMenu.getSelectionModel().getSelectedItems();
+        String selectedWaiter = (String) waiterComb.getValue();
+        String date = textDate.getText();
+
+        try (Connection connection = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/deniz",
+                "Чурсина Анастасия", "2323")) {
+
+            String mealsQuery = "INSERT INTO meals (id_table, id_waiters, dat, time_start, time_end) VALUES (?, ?, ?, ?, ?)";
+            PreparedStatement mealsStatement = connection.prepareStatement(mealsQuery, PreparedStatement.RETURN_GENERATED_KEYS);
+            mealsStatement.setInt(1, 1);
+            mealsStatement.setInt(2, 1);
+            mealsStatement.setString(3, date);
+            mealsStatement.setTime(4, java.sql.Time.valueOf("12:00:00"));
+            mealsStatement.setTime(5, java.sql.Time.valueOf("13:30:00"));
+            //mealsStatement.executeUpdate();
+
+            ResultSet generatedKeys = mealsStatement.getGeneratedKeys();
+            int id_meals = -1;
+            if (generatedKeys.next()) {
+                id_meals = generatedKeys.getInt(1);
+            }
+
+            String clientsMealsQuery = "INSERT INTO clients_meals (id_client, id_meals) VALUES (?, ?)";
+            PreparedStatement clientsMealsStatement = connection.prepareStatement(clientsMealsQuery);
+            clientsMealsStatement.setInt(1, user.get_id());
+            clientsMealsStatement.setInt(2, id_meals);
+            clientsMealsStatement.executeUpdate();
+
+            System.out.println("Бронирование успешно выполнено!");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }*/
     }
 
 
