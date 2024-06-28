@@ -27,23 +27,29 @@ public class UserProfile {
     @FXML
     public TextField textDate;
     private IsUsers_SQL isUsersSql = new IsUsers_SQL();
+    private MenuAdmin.Dish selectedWaiter;
 
     public void initialize() {
         isUsersSql = new IsUsers_SQL(); // Инициализация объекта для работы с базой данных
         listMenu.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         fillMenuListView();
+        fillWaitersComboBox();
     }
+
     private void fillMenuListView() {
         ObservableList<String> menuItems = FXCollections.observableArrayList(isUsersSql.getAllDishes());
         listMenu.setItems(menuItems);
     }
 
-
-
+    private void fillWaitersComboBox() {
+        ObservableList<String> waiters = FXCollections.observableArrayList(isUsersSql.getAllWaiters());
+        waiterComb.setItems(waiters);
+    }
     @FXML
     public void toBook(ActionEvent actionEvent) {
 
     }
+
 
     @FXML
     void toBack(ActionEvent event) throws IOException {

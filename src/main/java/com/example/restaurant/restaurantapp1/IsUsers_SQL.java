@@ -185,7 +185,26 @@ public class IsUsers_SQL {
 
         return menuItems;
     }
+    public ObservableList<String> getAllWaiters() {
+        ObservableList<String> waiterNames = FXCollections.observableArrayList();
+        String query = "SELECT name FROM waiters";
 
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/deniz",
+                "Чурсина Анастасия", "2323");
+             PreparedStatement statement = connection.prepareStatement(query);
+             ResultSet resultSet = statement.executeQuery()) {
+
+            while (resultSet.next()) {
+                String waiterName = resultSet.getString("name");
+                waiterNames.add(waiterName);
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Ошибка при выполнении SQL-запроса: " + e.getMessage());
+        }
+
+        return waiterNames;
+    }
 
 }
 
