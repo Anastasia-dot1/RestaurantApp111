@@ -22,10 +22,10 @@
                         </Label>
                         <TableView fx:id="booking" layoutX="20.0" layoutY="109.0" prefHeight="575.0" prefWidth="720.0">
                             <columns>
-                                <TableColumn prefWidth="70.0" text="№" />
-                                <TableColumn prefWidth="252.0" text="Меню" />
-                                <TableColumn prefWidth="155.0" text="Дата брони" />
-                                <TableColumn prefWidth="242.0" text="Офинциант" />
+                                <TableColumn fx:id="idColumn" prefWidth="70.0" text="№" />
+                                <TableColumn fx:id="idTable" prefWidth="252.0" text="№ Столика" />
+                                <TableColumn fx:id="bookingDateColumn" prefWidth="155.0" text="Дата брони" />
+                                <TableColumn fx:id="idWaiterColumn" prefWidth="242.0" text="№ Официант" />
                             </columns>
                         </TableView>
                         <Button fx:id="btnBack" layoutX="286.0" layoutY="728.0" mnemonicParsing="false" onAction="#toBack" prefHeight="34.0" prefWidth="188.0" style="-fx-background-color: #bedbff;" text="Вернуться назад" textFill="#012551">

@@ -1,6 +1,10 @@
 package com.example.restaurant.restaurantapp1;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.sql.*;
+
 
 public class IsUsers_SQL {
     private static IsUsers_SQL instance;
@@ -125,6 +129,7 @@ public class IsUsers_SQL {
             }
         }
     }
+
     public static void deleteDish(int dishId) {
         Connection connection = null;
         try {
@@ -160,9 +165,6 @@ public class IsUsers_SQL {
             }
         }
     }
-
-
-
 }
 
 

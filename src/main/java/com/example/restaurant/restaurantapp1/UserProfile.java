@@ -34,34 +34,11 @@ public class UserProfile {
 
     }
 
-
     @FXML
     public void toBook(ActionEvent actionEvent) {
-        ObservableList<String> menuItems = getMenuItemsFromDatabase();
 
-        // Далее вы можете использовать полученный список блюд для отображения в вашем интерфейсе
-        listMenu.setItems(menuItems);
     }
-    private ObservableList<String> getMenuItemsFromDatabase() {
-        ObservableList<String> menuItems = FXCollections.observableArrayList();
 
-        try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/deniz");
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT name FROM dishes");
-
-            while (rs.next()) {
-                String dishName = rs.getString("name");
-                menuItems.add(dishName);
-            }
-
-            conn.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return menuItems;
-    }
     @FXML
     void toBack(ActionEvent event) throws IOException {
         Stage stage = (Stage) btnBack.getScene().getWindow();
@@ -70,4 +47,3 @@ public class UserProfile {
         stage.show();
     }
 }
-
